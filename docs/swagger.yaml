@@ -1,0 +1,141 @@
+basePath: /
+definitions:
+  entities.Asset:
+    properties:
+      asset_description:
+        type: string
+      asset_id:
+        type: integer
+      emp_id:
+        type: integer
+    type: object
+  entities.Employee:
+    properties:
+      address:
+        type: string
+      asset_id:
+        type: integer
+      emp_id:
+        type: integer
+      emp_name:
+        type: string
+      phone:
+        type: integer
+    type: object
+  entities.User:
+    properties:
+      user_id:
+        type: string
+      user_password:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Asset Management System
+  version: "2.0"
+paths:
+  /api/createassets:
+    post:
+      consumes:
+      - application/json
+      description: Created new Asset.
+      parameters:
+      - description: New Asset
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/entities.Asset'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: creates new asset
+      tags:
+      - write
+  /api/createemployee:
+    post:
+      consumes:
+      - application/json
+      description: Creates the new Employee.
+      parameters:
+      - description: New Employee
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/entities.Employee'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: creates new Employee
+      tags:
+      - write
+  /api/getasset/{id}/:
+    get:
+      consumes:
+      - application/json
+      description: Gives the information about the current user.
+      operationId: get-asset-by-id
+      parameters:
+      - description: asset ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Gives the information about the current user
+      tags:
+      - write
+  /api/getusers/:
+    get:
+      consumes:
+      - application/json
+      description: Gives the information about all the user.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Gives the information about all the  user
+      tags:
+      - write
+  /api/usercreate:
+    post:
+      consumes:
+      - application/json
+      description: Create new user.
+      parameters:
+      - description: New User
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/entities.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: creates new user
+      tags:
+      - write
+schemes:
+- http
+swagger: "2.0"

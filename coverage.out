@@ -1,0 +1,7 @@
+mode: set
+ams/main.go:35.13,49.2 6 0
+ams/main.go:51.45,88.2 8 1
+ams/config.go:16.22,22.16 6 1
+ams/config.go:25.2,26.16 2 1
+ams/config.go:22.16,24.3 1 0
+ams/config.go:26.16,28.3 1 0
